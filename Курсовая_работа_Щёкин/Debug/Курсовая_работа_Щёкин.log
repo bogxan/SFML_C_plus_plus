@@ -13,25 +13,7 @@ c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсова
 c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(108): warning C4018: <: несоответствие типов со знаком и без знака
 c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(113): warning C4018: <: несоответствие типов со знаком и без знака
 c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(19): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(90): warning C4838: преобразование из "float" в "int" требует сужающего преобразования
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(90): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\main.cpp(8): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Scene_Controller.cpp
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(30): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(34): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(38): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(51): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(59): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(65): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(75): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(79): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(88): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(94): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(104): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(108): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(113): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(19): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(90): warning C4838: преобразование из "float" в "int" требует сужающего преобразования
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(90): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-  Создание кода...
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(92): warning C4838: преобразование из "float" в "int" требует сужающего преобразования
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(92): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\main.cpp(10): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Курсовая_работа_Щёкин.vcxproj -> C:\Users\Bohdan\OneDrive\Рабочий стол\SFML_Course_Work\Курсовая_работа_Щёкин\Debug\Курсовая_работа_Щёкин.exe
