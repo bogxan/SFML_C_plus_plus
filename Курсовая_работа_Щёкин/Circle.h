@@ -5,6 +5,7 @@ class Circle :public Figure
 	float radius, first_radius;
 	CircleShape circle;
 public:
+	Circle(){}
 	Circle(float r, Color c, float x, float y) :Figure(x, y, c)
 	{
 		this->radius = r;
@@ -27,6 +28,10 @@ public:
 	{
 		return radius;
 	}
+	float getRadius()
+	{
+		return radius;
+	}
 	FloatRect getBoundingBox() override {
 		return circle.getGlobalBounds();
 	}
@@ -39,19 +44,30 @@ public:
 	{
 		circle.setFillColor(c);
 	}
+
 	void setRadius(float b)
 	{
 		radius = b;
-	}
-	float getRadius()
-	{
-		return radius;
 	}
 	void setPosition(float x, float y) override
 	{
 		circle.setPosition(x, y);
 	}
 
+	void remove(RenderWindow* window) override {
+		window->clear();
+	}
+	void choose() override {
+		if (isSelected())
+		{
+			circle.setOutlineThickness(5);
+			circle.setOutlineColor(Color(192, 192, 192));
+		}
+		else {
+			circle.setOutlineThickness(0);
+			circle.setOutlineColor(color);
+		}
+	}
 	void limitMoving(Vector2u size) override
 	{
 		if (circle.getPosition().x + radius >= size.x) circle.setPosition(size.x - radius, circle.getPosition().y);
@@ -61,17 +77,23 @@ public:
 	}
 	void hide() override
 	{
+		Color outColor = circle.getOutlineColor();
+		float thick = circle.getOutlineThickness();
 		switch (counterHiding)
 		{
 		case 1:
 		{
 			circle.setFillColor(Color::Transparent);
+			circle.setOutlineColor(Color::Transparent);
+			circle.setOutlineThickness(0);
 			counterHiding++;
 			break;
 		}
 		case 2:
 		{
 			circle.setFillColor(getColor());
+			circle.setOutlineColor(outColor);
+			circle.setOutlineThickness(thick);
 			counterHiding--;
 			break;
 		}
@@ -79,12 +101,12 @@ public:
 			break;
 		}
 	}
-	void move(Keyboard::Key key, float coefOfMoving, float speed = 200) override
+	void move(Keyboard::Key key, float coefOfMoving, float speed = 800) override
 	{
-		if (Keyboard::isKeyPressed(Keyboard::D)) circle.move(1.0f * speed * coefOfMoving, 0.0f);
-		if (Keyboard::isKeyPressed(Keyboard::W)) circle.move(0.0f, -1.0f * speed * coefOfMoving);
-		if (Keyboard::isKeyPressed(Keyboard::A)) circle.move(-1.0f * speed * coefOfMoving, 0.0f);
-		if (Keyboard::isKeyPressed(Keyboard::S)) circle.move(0.0f, 1.0f * speed * coefOfMoving);
+		if (Keyboard::isKeyPressed(Keyboard::D)) circle.move(10.0f * speed * coefOfMoving, 0.0f);
+		if (Keyboard::isKeyPressed(Keyboard::W)) circle.move(0.0f, -10.0f * speed * coefOfMoving);
+		if (Keyboard::isKeyPressed(Keyboard::A)) circle.move(-10.0f * speed * coefOfMoving, 0.0f);
+		if (Keyboard::isKeyPressed(Keyboard::S)) circle.move(0.0f, 10.0f * speed * coefOfMoving);
 	}
 	void automove(int& part, int points[2], RenderWindow& window, float coefOfMoving, int speed = 150) override
 	{
@@ -109,6 +131,8 @@ public:
 	}
 	void transform() override
 	{
+		Color outColor = circle.getOutlineColor();
+		float thick = circle.getOutlineThickness();
 		switch (counterTransforming)
 		{
 		case 1:
@@ -116,6 +140,11 @@ public:
 			radius -= 25;
 			setRadius(radius);
 			circle.setRadius(getRadius());
+			if (isSelected())
+			{
+				circle.setOutlineColor(outColor);
+				circle.setOutlineThickness(thick);
+			}
 			counterTransforming++;
 			break;
 		}
@@ -123,6 +152,11 @@ public:
 		{
 			setRadius(first_radius);
 			circle.setRadius(getRadius());
+			if (isSelected())
+			{
+				circle.setOutlineColor(outColor);
+				circle.setOutlineThickness(thick);
+			}
 			counterTransforming--;
 			break;
 		}

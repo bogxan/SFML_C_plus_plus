@@ -9,10 +9,16 @@ using namespace std;
 class Scene_Controller {
 protected:
 	vector<Figure*> figures;
-	int ch = 0;
+	int ch;
 	bool collisionMode;
+	Color colors[7] = { Color::Red,Color::Blue,Color::Green,Color::White,Color::Yellow ,Color::Magenta, Color::Cyan };
+	RenderWindow* window;
 	Scene_Controller() {
 		collisionMode = false;
+		ContextSettings settings;
+		settings.antialiasingLevel = 8;
+		ch = 0;
+		window = new RenderWindow(VideoMode(1000, 1000), "SFML_Course_Work_Shchokin_Bohdan", Style::Default, settings);
 	}
 	bool collideCheck(int& collision_index) {
 		FloatRect boundingBox = figures[ch]->getBoundingBox();
@@ -31,6 +37,18 @@ protected:
 	bool getCollisionMode() {
 		return collisionMode;
 	}
+	vector<Figure*> getFigures() {
+		return figures;
+	}
+	RenderWindow* getWindow() {
+		return window;
+	}
+	void setWindow(RenderWindow* wind) {
+		window = wind;
+	}
+	void setFigures(Figure* fig) {
+		figures.push_back(fig);
+	}
 public:
 	Scene_Controller(Scene_Controller& other) = delete;
 	void operator=(const Scene_Controller&) = delete;
@@ -39,165 +57,326 @@ public:
 	{
 		ContextSettings settings;
 		settings.antialiasingLevel = 8;
-		RenderWindow window(VideoMode(900, 900), "SFML_Course_Work_Shchokin_Bohdan", Style::Default, settings);
+		RenderWindow* window = getWindow();
+		Vector2u sizeWin = window->getSize();
 		int countOfFigures = 3;
 		int collision_index = -1;
 		int partForMoving = 0;
 		float coefOfMoving, speed = 300;
-		Rectangle* rectangle = new Rectangle(200.0f, 100.0f, Color::Yellow, 150, 150);
-		Circle* circle = new Circle(90.0f, Color::Cyan, 250, 250);
-		Rectangle* rectangle1 = new Rectangle(100.0f, 50.0f, Color::Red, 350, 350);
-		figures.push_back(rectangle->clone());
-		figures.push_back(circle->clone());
-		figures.push_back(rectangle1->clone());
-		Color colors[7] = { Color::Red,Color::Blue,Color::Green,Color::White,Color::Yellow ,Color::Magenta, Color::Cyan };
-		Vector2u sizeWin = window.getSize();
 		Clock* clock_for_moving = new Clock;
 		Clock* clock_for_keyboard = new Clock;
+		My_Rectangle* rectangle = new My_Rectangle(200.0f, 100.0f, Color::Yellow, 150, 150);
+		Circle* circle = new Circle(90.0f, Color::Cyan, 450, 450);
+		My_Rectangle* rectangle1 = new My_Rectangle(100.0f, 50.0f, Color::Red, 750, 750);
+		setFigures(rectangle->clone());
+		setFigures(circle->clone());
+		setFigures(rectangle1->clone());
+		delete circle;
+		delete rectangle;
+		delete rectangle1;
+
+		int choice;
 		cout << "Інструкція для управління об'єктами:" << endl;
-		cout << "<- або -> - вибір об'єкта." << endl;
-		cout << "W - рух об'єкта нагору." << endl;
-		cout << "A - рух об'єкта ліворуч." << endl;
-		cout << "S - рух об'єкта донизу." << endl;
-		cout << "D - рух об'єкта праворуч." << endl;
-		cout << "H - приховування об'єкта." << endl;
-		cout << "T - трансформація об'єкта(зміна розмірів)." << endl;
-		cout << "R - повернення об'екта в початковий стан." << endl;
-		cout << "M - автоматичний руч об'екта(по заданому закону)." << endl;
-		cout << "C - зміна кольору об'екта." << endl;
-		cout << "K - створення агрегата з двух об'ектів." << endl;
-		cout << "P - зміна кольору об'екта под впливом іншого об'екта." << endl;
+		cout << "ЛКМ - вибір об'єкта." << endl;
+		cout << "WASD - рух об'єкта." << endl;
+		cout << "0 - копіювання об'єкта." << endl;
+		cout << "1 - додавання об'єкта." << endl;
+		cout << "!!! 2 - видалення об'єкта." << endl;
+		cout << "3 - приховування об'єкта." << endl;
+		cout << "4 - трансформація об'єкта(зміна розмірів)." << endl;
+		cout << "5 - повернення об'екта в початковий стан." << endl;
+		cout << "6 - автоматичний рух об'екта(по заданому закону)." << endl;
+		cout << "7 - зміна кольору об'екта." << endl;
+		cout << "!!! 8 - створення агрегата з двух об'ектів." << endl;
+		cout << "!!! 9 - зміна кольору об'екта под впливом іншого об'екта." << endl;
 		cout << "Esc - вихід з програми." << endl;
-		while (window.isOpen())
+		while (window->isOpen())
 		{
-			coefOfMoving = clock_for_moving->restart().asSeconds();
+			coefOfMoving = 0.002;
+			for (int i = 0; i < getFigures().size(); i++) {
+				getFigures()[i]->draw(*window);
+			}
+			window->display();
 			Event event;
-			while (window.pollEvent(event));
-			{
-				if (event.type == Event::Closed) window.close();
-				if (Keyboard::isKeyPressed(Keyboard::Right))
-				{
-					ch++;
-					if (ch == countOfFigures) ch = 0;
-					clock_for_keyboard->restart();
-					while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+			while (window->pollEvent(event)) {
+				if (event.type == Event::Closed) {
+					window->close();
 				}
-				else if (Keyboard::isKeyPressed(Keyboard::Left))
+				if (Mouse::isButtonPressed(Mouse::Left))
 				{
-					ch--;
-					if (ch < 0)ch = countOfFigures - 1;
-					clock_for_keyboard->restart();
-					while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+					auto mouse_pos = sf::Mouse::getPosition(*window);
+					auto translated_pos = window->mapPixelToCoords(mouse_pos);
+					for (int i = 0; i < figures.size(); i++)
+					{
+						figures[i]->setSelected(false);
+						figures[i]->choose();
+						if (figures[i]->getBoundingBox().contains(translated_pos)) {
+							ch = i;
+							figures[ch]->setSelected(true);
+							figures[ch]->choose();
+						}
+					}
 				}
-				int x[2] = { figures[ch]->getX() + 200, figures[ch]->getX() };
-				for (int i = 0; i < countOfFigures; i++) figures[i]->setFillColor(Color::Transparent);
-				if (figures[ch]->getCounterHiding() == 1) figures[ch]->setColor(figures[ch]->getColor());
-				if (Keyboard::isKeyPressed(Keyboard::H))
+				if (figures[ch] != nullptr)
 				{
-					clock_for_keyboard->restart();
-					figures[ch]->hide();
-					window.clear(Color::Black);
-					for (int i = 0; i < countOfFigures; i++) figures[i]->draw(window);
-					window.display();
-					while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
-				}
-				if (Keyboard::isKeyPressed(Keyboard::A) || Keyboard::isKeyPressed(Keyboard::D) || Keyboard::isKeyPressed(Keyboard::W) || Keyboard::isKeyPressed(Keyboard::S))
-				{
-					if (collisionMode) {
-						if (collideCheck(collision_index))
+					if (Keyboard::isKeyPressed(Keyboard::Num0))
+					{
+						if (figures[ch]->isSelected())
 						{
-							figures[ch]->setColor(colors[rand() % 7]);
-							figures[ch]->move(event.key.code, coefOfMoving);
-							figures[ch]->limitMoving(sizeWin);
+							Figure* new_figure = figures[ch]->clone();
+							new_figure->setPosition(figures[ch]->getX()+50, figures[ch]->getY() + 50);
+							setFigures(new_figure->clone());
+							window->clear(Color::Black);
+							for (int i = 0; i < figures.size(); i++)
+							{
+								figures[i]->draw(*window);
+							}
+							window->display();
+							clock_for_keyboard->restart();
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+							figures[ch]->setSelected(false);
 						}
 						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
+					}
+					if (Keyboard::isKeyPressed(Keyboard::W) || Keyboard::isKeyPressed(Keyboard::A) || Keyboard::isKeyPressed(Keyboard::S) || Keyboard::isKeyPressed(Keyboard::D))
+					{
+						if (figures[ch]->isSelected())
+						{
+							figures[ch]->remove(window);
 							figures[ch]->move(event.key.code, coefOfMoving);
 							figures[ch]->limitMoving(sizeWin);
 						}
 					}
-					else {
-						figures[ch]->move(event.key.code, coefOfMoving);
-						figures[ch]->limitMoving(sizeWin);
-					}
-				}
-				if (Keyboard::isKeyPressed(Keyboard::T))
-				{
-					figures[ch]->transform();
-					window.clear(Color::Black);
-					for (int i = 0; i < countOfFigures; i++) figures[i]->draw(window);
-					window.display();
-					clock_for_keyboard->restart();
-					while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
-				}
-				if (Keyboard::isKeyPressed(Keyboard::P))
-				{
-					if (!getCollisionMode()) setCollisionMode(true);
-					else setCollisionMode(false);
-					while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
-				}
-				if (Keyboard::isKeyPressed(Keyboard::R))
-				{
-					figures[ch]->restore();
-					window.clear(Color::Black);
-					for (int i = 0; i < countOfFigures; i++) figures[i]->draw(window);
-					window.display();
-					clock_for_keyboard->restart();
-					while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
-				}
-				if (Keyboard::isKeyPressed(Keyboard::M))
-				{
-					clock_for_keyboard->restart();
-					while (clock_for_keyboard->getElapsedTime().asSeconds() < 3)
+					if (Keyboard::isKeyPressed(Keyboard::Num2))
 					{
-						figures[ch]->automove(partForMoving, x, window, coefOfMoving);
-						window.clear(Color::Black);
-						for (int i = 0; i < countOfFigures; i++) figures[i]->draw(window);
-						window.display();
+						
+						if (figures[ch]->isSelected())
+						{
+							figures[ch]->remove(window);
+							for (auto ele = figures.begin(); ele != figures.end(); ele++)
+							{
+								if (*ele == figures[ch])
+								{
+									ele = figures.erase(ele);
+								}
+								else {
+									++ele;
+								}
+							}
+							window->clear(Color::Black);
+							for (int i = 0; i < figures.size(); i++)
+							{
+								figures[i]->draw(*window);
+							}
+							window->display();
+							clock_for_keyboard->restart();
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+							figures[ch]->setSelected(false);
+						}
+						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
 					}
-					partForMoving = 0;
-				}
-				if (Keyboard::isKeyPressed(Keyboard::C))
-				{
-					int c;
-				B:
-					cout << "Виберіть колір для об'єкта:" << endl;
-					cout << "1.Червоний  2.Синій  3.Зелений  4.Фіолетовий  5.Жовтий" << endl;
-					cin >> c;
-					if (c >= 1 && c <= 5) figures[ch]->setColor(colors[c - 1]);
-					else goto B;
-				}
-				if (Keyboard::isKeyPressed(Keyboard::K))
-				{
-					int i1, i2;
-				A:
-					cout << "Введіть індекси об'ектів через пробіл від 0 до " << countOfFigures - 1 << endl;
-					cin >> i1 >> i2;
-					if (i1 >= 0 && i1 < countOfFigures && i2 >= 0 && i2 < countOfFigures)
+					if (Keyboard::isKeyPressed(Keyboard::Num3))
 					{
-						Composite* composit = new Composite(figures[i1]->getColor(), figures[i1]->getX(), figures[i2]->getY());
-						composit->pushBack(figures[i1]->clone());
-						composit->pushBack(figures[i2]->clone());
-						figures.push_back(composit->clone());
-						composit->clear();
-						countOfFigures++;
-						delete composit;
+						if (figures[ch]->isSelected())
+						{
+							figures[ch]->hide();
+							window->clear(Color::Black);
+							for (int i = 0; i < figures.size(); i++)
+							{
+								figures[i]->draw(*window);
+							}
+							window->display();
+							clock_for_keyboard->restart();
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+							figures[ch]->setSelected(false);
+						}
+						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
 					}
-					else goto A;
+					if (Keyboard::isKeyPressed(Keyboard::Num4))
+					{
+						
+						if (figures[ch]->isSelected())
+						{
+							figures[ch]->transform();
+							window->clear(Color::Black);
+							for (int i = 0; i < figures.size(); i++)
+							{
+								figures[i]->draw(*window);
+							}
+							window->display();
+							clock_for_keyboard->restart();
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+							figures[ch]->setSelected(false);
+						}
+						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Num5))
+					{
+						
+						if (figures[ch]->isSelected())
+						{
+							figures[ch]->restore();
+							window->clear(Color::Black);
+							for (int i = 0; i < figures.size(); i++)
+							{
+								figures[i]->draw(*window);
+							}
+							window->display();
+							clock_for_keyboard->restart();
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+							figures[ch]->setSelected(false);
+						}
+						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Num6))
+					{
+						
+						if (figures[ch]->isSelected())
+						{
+							clock_for_keyboard->restart();
+							int x[2] = { figures[ch]->getX() + 200, figures[ch]->getX() };
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 3)
+							{
+								figures[ch]->automove(partForMoving, x, *window, coefOfMoving);
+								window->clear(Color::Black);
+								for (int i = 0; i < figures.size(); i++)
+								{
+									figures[i]->draw(*window);
+								}
+								window->display();
+							}
+							partForMoving = 0;
+							figures[ch]->setSelected(false);
+						}
+						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Num7))
+					{
+						if (figures[ch]->isSelected())
+						{
+							int c;
+							B:
+							cout << "Виберіть колір для об'єкта:" << endl;
+							cout << "1.Червоний  2.Синій  3.Зелений  4.Фіолетовий  5.Жовтий" << endl;
+							cin >> c;
+							if (c >= 1 && c <= 5) figures[ch]->setColor(colors[c - 1]);
+							else goto B;
+							figures[ch]->setSelected(false);
+						}
+						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Num8))
+					{
+						if (figures[ch]->isSelected())
+						{
+							clock_for_keyboard->restart();
+							clock_for_keyboard->restart();
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+							figures[ch]->setSelected(false);
+						}
+						else {
+							cout << "Виберіть фігуру!" << endl;
+						}
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Num9))
+					{
+						if (figures[ch]->isSelected())
+						{
+							if (!getCollisionMode()) {
+								setCollisionMode(true);
+								cout << "Collision deformating enabled\n";
+							}
+							else {
+								setCollisionMode(false);
+								cout << "Collision deformating disabled\n";
+							}
+							clock_for_keyboard->restart();
+							while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
+							figures[ch]->setSelected(false);
+						}
+						
+					}
+					for (int i = 0; i < getFigures().size(); i++) {
+						getFigures()[i]->draw(*window);
+					}
+					window->display();
+				}
+				if (Keyboard::isKeyPressed(Keyboard::Num1))
+				{
+					Figure* new_circle = new Circle();
+					Figure* new_rect = new My_Rectangle();
+					float radius, width, height, x = 0, y = 0;
+					cout << "Введіть координати нової фігури через пробіл: " << endl;
+					cin >> x >> y;
+					int colorInd = -1, shapeInd = -1;
+					A:
+					cout << "Введіть колір нової фігури: " << endl;
+					cout << "0 - Red, 1 - Blue, 2 - Green, 3 - White, 4 - Yellow , 5 - Magenta, 6 - Cyan" << endl;
+					cin >> colorInd;
+					if (colorInd > 6 || colorInd < 0)
+					{
+						goto A;
+					}
+					cout << "Введіть тип фігури: " << endl;
+					cout << "1 - Коло" << endl;
+					cout << "2 - Прямокутник" << endl;
+					cin >> shapeInd;
+					switch (shapeInd)
+					{
+					case 1:
+						D:
+						cout << "Введіть радіус кола: " << endl;
+						cin >> radius;
+						if (radius<=0)
+						{
+							goto D;
+						}
+						new_circle = new Circle(radius, colors[colorInd], x, y);
+						setFigures(new_circle->clone());
+						break;
+					case 2:
+						C:
+						cout << "Введіть ширину та висоту прямокутника через пробіл: " << endl;
+						cin >> width >> height;
+						if (width<=0 || height<=0 || (width <= 0 && height <= 0))
+						{
+							goto C;
+						}
+						new_rect = new My_Rectangle(width, height, colors[colorInd], x, y);
+						setFigures(new_rect->clone());
+						break;
+					default:
+						cout << "Неправильно введено тип фігури!" << endl;
+						break;
+					}
+					window->clear(Color::Black);
+					for (int i = 0; i < getFigures().size(); i++) {
+						getFigures()[i]->draw(*window);
+					}
+					window->display();
+					clock_for_keyboard->restart();
+					while (clock_for_keyboard->getElapsedTime().asSeconds() < 1) {}
 				}
 				if (Keyboard::isKeyPressed(Keyboard::Escape))
 				{
 					exit(0);
 				}
+				window->display();
 			}
-			window.clear(Color::Black);
-			for (int i = 0; i < countOfFigures; i++) figures[i]->draw(window);
-			window.display();
 		}
-		delete clock_for_keyboard;
-		delete clock_for_moving;
-		delete circle;
-		delete rectangle;
-		delete rectangle1;
-		system("pause");
 	}
 };

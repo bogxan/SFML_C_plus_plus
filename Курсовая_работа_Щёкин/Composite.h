@@ -38,6 +38,12 @@ public:
 		for (int i = 0; i < composites.size(); i++) composites[i]->setPosition(x, y);
 	}
 
+	void choose() override {
+		for (int i = 0; i < composites.size(); i++)
+		{
+			composites[i]->choose();
+		}
+	}
 	void pushBack(Figure* fig)
 	{
 		composites.push_back(fig);
@@ -49,6 +55,11 @@ public:
 	void limitMoving(Vector2u size) override
 	{
 		for (int i = 0; i < composites.size(); i++) composites[i]->limitMoving(size);
+	}
+	void remove(RenderWindow* window) override {
+		for (int i = 0; i < composites.size(); i++) {
+			composites[i]->remove(window);
+		}
 	}
 	void hide() override
 	{

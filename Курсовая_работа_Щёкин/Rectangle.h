@@ -1,11 +1,12 @@
 #pragma once
 #include "Figure.h"
-class Rectangle :public Figure
+class My_Rectangle :public Figure
 {
 	float width, height, first_height, first_width;
 	RectangleShape rectangle;
 public:
-	Rectangle(float width, float height, Color c, float x, float y) :Figure(x, y, c)
+	My_Rectangle(){}
+	My_Rectangle(float width, float height, Color c, float x, float y) :Figure(x, y, c)
 	{
 		this->width = width;
 		this->height = height;
@@ -46,6 +47,20 @@ public:
 		rectangle.setPosition(x, y);
 	}
 
+	void remove(RenderWindow* window) override {
+		window->clear();
+	}
+	void choose() override {
+		if (isSelected())
+		{
+			rectangle.setOutlineThickness(5);
+			rectangle.setOutlineColor(Color(192, 192, 192));
+		}
+		else {
+			rectangle.setOutlineThickness(0);
+			rectangle.setOutlineColor(color);
+		}
+	}
 	void limitMoving(Vector2u size) override
 	{
 		if (rectangle.getPosition().x + width / 2 >= size.x) rectangle.setPosition(size.x - width / 2, rectangle.getPosition().y);
@@ -55,17 +70,23 @@ public:
 	}
 	void hide() override
 	{
+		Color outColor = rectangle.getOutlineColor();
+		float thick = rectangle.getOutlineThickness();
 		switch (counterHiding)
 		{
 		case 1:
 		{
 			rectangle.setFillColor(Color::Transparent);
+			rectangle.setOutlineColor(Color::Transparent);
+			rectangle.setOutlineThickness(0);
 			counterHiding++;
 			break;
 		}
 		case 2:
 		{
 			rectangle.setFillColor(getColor());
+			rectangle.setOutlineColor(outColor);
+			rectangle.setOutlineThickness(thick);
 			counterHiding--;
 			break;
 		}
@@ -73,12 +94,12 @@ public:
 			break;
 		}
 	}
-	void move(Keyboard::Key key, float coefOfMoving, float speed = 200) override
+	void move(Keyboard::Key key, float coefOfMoving, float speed = 800) override
 	{
-		if (Keyboard::isKeyPressed(Keyboard::D)) rectangle.move(1.0f * speed * coefOfMoving, 0.0f);
-		if (Keyboard::isKeyPressed(Keyboard::W)) rectangle.move(0.0f, -1.0f * speed * coefOfMoving);
-		if (Keyboard::isKeyPressed(Keyboard::A)) rectangle.move(-1.0f * speed * coefOfMoving, 0.0f);
-		if (Keyboard::isKeyPressed(Keyboard::S)) rectangle.move(0.0f, 1.0f * speed * coefOfMoving);
+		if (Keyboard::isKeyPressed(Keyboard::D)) rectangle.move(10.0f * speed * coefOfMoving, 0.0f);
+		if (Keyboard::isKeyPressed(Keyboard::W)) rectangle.move(0.0f, -10.0f * speed * coefOfMoving);
+		if (Keyboard::isKeyPressed(Keyboard::A)) rectangle.move(-10.0f * speed * coefOfMoving, 0.0f);
+		if (Keyboard::isKeyPressed(Keyboard::S)) rectangle.move(0.0f, 10.0f * speed * coefOfMoving);
 	}
 	void automove(int& part, int points[2], RenderWindow& window, float coefOfMoving, int speed = 150) override
 	{
@@ -139,9 +160,9 @@ public:
 	{
 		window.draw(rectangle);
 	}
-	Rectangle* clone() override
+	My_Rectangle* clone() override
 	{
-		Rectangle* circ = new Rectangle(width, height, color, rectangle.getPosition().x, rectangle.getPosition().y);
+		My_Rectangle* circ = new My_Rectangle(width, height, color, rectangle.getPosition().x, rectangle.getPosition().y);
 		return circ;
 	}
 };
