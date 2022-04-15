@@ -1,65 +1,49 @@
 ﻿  Scene_Controller.cpp
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(30): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(34): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(38): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(42): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(57): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(60): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(70): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(76): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(86): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(90): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(99): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(105): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(115): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(119): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(124): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(25): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(95): warning C4305: =: усечение из "double" в "float"
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(96): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(109): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(130): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(169): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(188): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(208): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(228): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(247): warning C4838: преобразование из "float" в "int" требует сужающего преобразования
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(247): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(27): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(104): warning C4305: =: усечение из "double" в "float"
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(105): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(118): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(134): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(183): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(213): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(232): warning C4018: <: несоответствие типов со знаком и без знака
 c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(252): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(313): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(367): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(78): warning C4101: choice: неиспользованная локальная переменная
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(272): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(291): warning C4838: преобразование из "float" в "int" требует сужающего преобразования
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(291): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(296): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(321): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(345): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(365): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(373): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(385): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(395): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(408): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(465): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(86): warning C4101: choice: неиспользованная локальная переменная
   main.cpp
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(30): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(34): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(38): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(42): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(57): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(60): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(70): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(76): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(86): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(90): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(99): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(105): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(115): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(119): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\composite.h(124): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(25): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(95): warning C4305: =: усечение из "double" в "float"
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(96): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(109): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(130): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(169): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(188): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(208): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(228): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(247): warning C4838: преобразование из "float" в "int" требует сужающего преобразования
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(247): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(27): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(104): warning C4305: =: усечение из "double" в "float"
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(105): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(118): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(134): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(183): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(213): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(232): warning C4018: <: несоответствие типов со знаком и без знака
 c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(252): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(313): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(367): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(78): warning C4101: choice: неиспользованная локальная переменная
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(272): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(291): warning C4838: преобразование из "float" в "int" требует сужающего преобразования
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(291): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(296): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(321): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(345): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(365): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(373): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(385): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(395): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(408): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(465): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\scene_controller.h(86): warning C4101: choice: неиспользованная локальная переменная
 c:\users\bohdan\onedrive\рабочий стол\sfml_course_work\курсовая_работа_щёкин\main.cpp(10): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Создание кода...
   Курсовая_работа_Щёкин.vcxproj -> C:\Users\Bohdan\OneDrive\Рабочий стол\SFML_Course_Work\Курсовая_работа_Щёкин\Debug\Курсовая_работа_Щёкин.exe
